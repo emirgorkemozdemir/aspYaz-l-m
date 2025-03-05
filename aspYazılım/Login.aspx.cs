@@ -21,7 +21,7 @@ namespace aspYazılım
 
             SqlCommand command_login = new SqlCommand("SELECT * FROM kullanici WHERE kullanici_adi = @pka AND sifre = @ppass",SqlConnectionClass.connection);
 
-            command_login.Parameters.AddWithValue("@pka",tboxUsername.Text);
+            command_login.Parameters.AddWithValue("@pka",tboxUsername.Text.ToLower().Trim());
             command_login.Parameters.AddWithValue("@ppass",Sha256Class.ComputeSha256Hash(tboxPassword.Text));
 
             SqlDataReader data_reader = command_login.ExecuteReader();
@@ -38,6 +38,7 @@ namespace aspYazılım
                 data_reader.Close();
                 SqlConnectionClass.connection.Close();
                 Response.Write("Giriş başarılı");
+                Response.Redirect("Personelİslemleri.aspx");
             }
             else
             {

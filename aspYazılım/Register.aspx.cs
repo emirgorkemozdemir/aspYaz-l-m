@@ -21,7 +21,7 @@ namespace aspYazılım
 
             SqlCommand command = new SqlCommand("SELECT kullanici_adi FROM kullanici WHERE kullanici_adi = @pka",SqlConnectionClass.connection);
 
-            command.Parameters.AddWithValue("@pka",tboxUsername.Text);
+            command.Parameters.AddWithValue("@pka",tboxUsername.Text.ToLower().Trim());
 
             SqlDataReader data_reader = command.ExecuteReader();
 
@@ -47,7 +47,7 @@ namespace aspYazılım
                 SqlConnectionClass.connection.Open();
 
                 SqlCommand command_insert = new SqlCommand("INSERT INTO kullanici (kullanici_adi, sifre,rol) VALUES (@pka,@ppass,@prol)", SqlConnectionClass.connection);
-                command_insert.Parameters.AddWithValue("@pka", tboxUsername.Text);
+                command_insert.Parameters.AddWithValue("@pka", tboxUsername.Text.ToLower().Trim());
                 command_insert.Parameters.AddWithValue("@ppass", Sha256Class.ComputeSha256Hash(tboxPassword.Text));
                 command_insert.Parameters.AddWithValue("@prol", 2);
 
