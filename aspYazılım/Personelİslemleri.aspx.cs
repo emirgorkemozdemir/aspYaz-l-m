@@ -35,5 +35,48 @@ namespace aspYazılım
                 SqlConnectionClass.connection.Close();
             }       
         }
+
+        protected void GoToAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PersonelEkle.aspx");
+        }
+
+        protected void btnFilter_Click(object sender, EventArgs e)
+        {
+            SqlConnectionClass.connection.Open();
+
+            SqlCommand command_list = new SqlCommand("SELECT * FROM personel WHERE telefon LIKE @pfilter OR email LIKE @pfilter", SqlConnectionClass.connection);
+            command_list.Parameters.AddWithValue("@pfilter","%"+tboxFilter.Text+"%");
+
+            SqlDataAdapter da = new SqlDataAdapter(command_list);
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+
+            DataList1.DataSource = dt;
+            DataList1.DataBind();
+
+            SqlConnectionClass.connection.Close();
+        }
+
+        protected void tboxFilter_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnectionClass.connection.Open();
+
+            SqlCommand command_list = new SqlCommand("SELECT * FROM personel WHERE telefon LIKE @pfilter OR email LIKE @pfilter", SqlConnectionClass.connection);
+            command_list.Parameters.AddWithValue("@pfilter", "%" + tboxFilter.Text + "%");
+
+            SqlDataAdapter da = new SqlDataAdapter(command_list);
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+
+            DataList1.DataSource = dt;
+            DataList1.DataBind();
+
+            SqlConnectionClass.connection.Close();
+        }
     }
 }

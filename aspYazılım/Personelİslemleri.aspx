@@ -10,7 +10,10 @@
 <body>
     <form id="form1" runat="server">
 
+        <asp:Button ID="GoToAdd" runat="server" CssClass="btn btn-info" Text="Personel Ekle" OnClick="GoToAdd_Click" />
 
+        <asp:TextBox ID="tboxFilter" runat="server" OnTextChanged="tboxFilter_TextChanged"  AutoPostBack="True"></asp:TextBox>
+        <asp:Button ID="btnFilter" runat="server" Text="Filtrele" OnClick="btnFilter_Click" />
 
  <asp:DataList ID="DataList1" runat="server" CssClass="table table-hover" cellspacing="0" style="border-collapse:collapse;">
     
@@ -25,11 +28,11 @@
                 <th>Personel Maaş</th>
                 <th>Personel İşe Giriş</th>
                 <th>Personeli Sil</th>
+                <th>Personeli Güncelle</th>
           
     </HeaderTemplate>
     
     <ItemTemplate>
-      
             <td><%# Eval("ad") %></td>
             <td><%# Eval("soyad") %></td>
             <td><%# Eval("telefon") %></td>
@@ -37,8 +40,8 @@
             <td><%# Eval("pozisyon") %></td>
             <td><%# Eval("maas") %></td>
             <td><%# Eval("ise_giris_tarihi") %></td>
-            <td><a href="PersoneliSil.aspx?id=<%# Eval("id") %>" class="btn btn-danger"></a></td>
-      
+            <td><a href="PersoneliSil.aspx?id=<%# Eval("id") %>" class="btn btn-danger">Sil</a></td>
+            <td><a href="PersoneliGuncelle.aspx?id=<%# Eval("id") %>" class="btn btn-warning">Güncelle</a></td>
     </ItemTemplate>
 
 </asp:DataList>

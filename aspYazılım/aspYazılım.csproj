@@ -126,6 +126,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="PersonelEkle.aspx" />
+    <Content Include="PersoneliGuncelle.aspx" />
     <Content Include="PersoneliSil.aspx" />
     <Content Include="Personelİslemleri.aspx" />
     <Content Include="Register.aspx" />
@@ -230,6 +232,20 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonelEkle.aspx.cs">
+      <DependentUpon>PersonelEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersonelEkle.aspx.designer.cs">
+      <DependentUpon>PersonelEkle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersoneliGuncelle.aspx.cs">
+      <DependentUpon>PersoneliGuncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersoneliGuncelle.aspx.designer.cs">
+      <DependentUpon>PersoneliGuncelle.aspx</DependentUpon>
     </Compile>
     <Compile Include="PersoneliSil.aspx.cs">
       <DependentUpon>PersoneliSil.aspx</DependentUpon>
